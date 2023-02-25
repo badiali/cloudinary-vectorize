@@ -1,7 +1,13 @@
 {
-	"name": "",
+	"name": "vectorize-image",
 	"type": "module",
 	"version": "0.0.1",
+	"homepage": "https://github.com/badiali/cloudinary-vectorize#readme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/badiali/cloudinary-vectorize.git"
+	},
+	"private": true,
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
