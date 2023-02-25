@@ -1,4 +1,5 @@
 ---
+import StepUpload from "../components/StepUpload.astro";
 import CloudinaryLogo from "../components/CloudinaryLogo.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -34,7 +35,7 @@ import Layout from "../layouts/Layout.astro";
 				class="flex flex-col lg:flex-col items-center lg:items-start md:max-w-3xl lg:max-w-lg"
 			>
 				<img
-					src="https://res.cloudinary.com/djuhnyiuy/image/upload/e_vectorize:3:0.9/f_svg/v1677139869/cld-sample-5.jpg"
+					src="https://res.cloudinary.com/badiali/image/upload/e_vectorize:3:0.9/f_svg/v1677139869/cld-sample-5.jpg"
 					class="w-full mb-8 rounded-[2rem]"
 				/>
 				<h1
@@ -48,22 +49,7 @@ import Layout from "../layouts/Layout.astro";
 				</p>
 			</div>
 			<div class="relative flex flex-col gap-4 md:gap-8 max-w-md">
-				<div
-					class="dropzone w-full flex flex-col sm:justify-center sm:items-center sm:gap-8 sm:pt-36 sm:pb-16 sm:px-16 rounded-[2rem]"
-				>
-					<button
-						type="button"
-						class="btn rounded-2xl font-bold transition ease-in-out text-center hover:no-underline inline-flex items-center justify-center text-2xl px-8 py-2.5 text-white bg-primary"
-						>Upload Image</button
-					>
-					<div class="hidden sm:flex flex-col gap-1.5 text-black">
-						<p class="m-0 font-bold text-xl">
-							or drop a file,
-						</p><span class="text-xs text-center"
-							>paste <a href="#" class="underline">URL</a>
-						</span>
-					</div>
-				</div>
+				<StepUpload />
 			</div>
 		</div>
 	</main>
@@ -79,38 +65,5 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
-	.dropzone * {
-		position: relative;
-		z-index: 2;
-	}
-	.dropzone::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 1;
-		width: 100%;
-		height: 100%;
-		border-radius: 2rem;
-		background-color: #eef2ff;
-	}
-	.dropzone::after {
-		content: "";
-		position: absolute;
-		top: 1.5rem;
-		left: -1.5rem;
-		z-index: 0;
-		width: 100%;
-		height: 100%;
-		border-radius: 2rem;
-		background-image: radial-gradient(currentColor 1px, transparent 1px);
-		background-size: 10px 10px;
-		color: var(--primary);
-	}
-	@media (min-width: 1024px) {
-		.dropzone::after {
-			top: 2rem;
-			left: -2rem;
-		}
-	}
+
 </style>
