@@ -12,6 +12,7 @@
 		<div
 			class="flex flex-col lg:flex-col items-center lg:items-start md:max-w-3xl lg:max-w-lg"
 		>
+			<!-- svelte-ignore a11y-img-redundant-alt -->
 			<img
 				src="https://res.cloudinary.com/badiali/image/upload/e_vectorize:3:0.9/f_svg/v1677139869/cld-sample-5.jpg"
 				class="w-full mb-8 rounded-[2rem]"
