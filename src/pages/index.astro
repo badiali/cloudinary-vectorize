@@ -1,7 +1,9 @@
 ---
-import StepUpload from "../components/StepUpload.astro";
-import CloudinaryLogo from "../components/CloudinaryLogo.astro";
+import { ImageStatus } from "../types.d"
+import CloudinaryLogo from "../components/CloudinaryLogo.svelte";
+import StepUpload from "../components/StepUpload.svelte";
 import Layout from "../layouts/Layout.astro";
+import { imageStatus } from "../store"
 ---
 
 <Layout title="Vectorize Image">
@@ -49,7 +51,7 @@ import Layout from "../layouts/Layout.astro";
 				</p>
 			</div>
 			<div class="relative flex flex-col gap-4 md:gap-8 max-w-md">
-				<StepUpload />
+				<StepUpload client:visible />
 			</div>
 		</div>
 	</main>
@@ -59,7 +61,7 @@ import Layout from "../layouts/Layout.astro";
 		Built with <a
 			href="https://cloudinary.com"
 			target="_blank"
-			rel="noreferrer"><CloudinaryLogo /></a
+			rel="noreferrer"><CloudinaryLogo client:visible /></a
 		>
 	</footer>
 </Layout>
