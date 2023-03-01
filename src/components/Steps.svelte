@@ -12,21 +12,18 @@
 		<div
 			class="flex flex-col lg:flex-col items-center lg:items-start md:max-w-3xl lg:max-w-lg"
 		>
-			<!-- svelte-ignore a11y-img-redundant-alt -->
-			<img
-				src="https://res.cloudinary.com/badiali/image/upload/e_vectorize:3:0.9/f_svg/v1677139869/cld-sample-5.jpg"
-				class="w-full mb-8 rounded-[2rem]"
-				alt="Example image"
-			/>
+			<!-- svelte-ignore a11y-media-has-caption -->
+			<video class="object-cover w-full aspect-video mb-5" src="./process.mp4" poster="./poster.png" autoplay loop muted></video>
 			<h1
 				class="font-bold tracking-tight mb-3 text-4xl md:text-5xl lg:text-6xl text-center lg:!text-left"
 			>
 				<span class="text-gradient">Vectorize</span> Image
 			</h1>
-			<p class="font-bold text-xl m-0 text-center lg:!text-left">
+			<p class="font-bold text-xl m-0 text-center lg:!text-left mb-2">
 				100% Automatically and
 				<span class="text-gradient"> Free</span>
 			</p>
+			<p>By using this service, you can download your raster image as an SVG file, making it easier to edit and use for various design projects.</p>
 		</div>
 		<div class="relative flex flex-col gap-4 md:gap-8 max-w-md">
 			<StepUpload />
