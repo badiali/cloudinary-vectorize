@@ -7,7 +7,7 @@
 
 {#if $imageStatus === ImageStatus.READY || $imageStatus === ImageStatus.UPLOADING}
 	<div
-		class="w-full flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-16 px-6 xl:px-0"
+		class="w-full flex flex-col lg:flex-row items-center justify-between gap-8 px-6 xl:px-0"
 	>
 		<div
 			class="flex flex-col lg:flex-col items-center lg:items-start md:max-w-3xl lg:max-w-lg"
@@ -23,7 +23,7 @@
 				100% Automatically and
 				<span class="text-gradient"> Free</span>
 			</p>
-			<p>By using this service, you can download your raster image as an SVG file, making it easier to edit and use for various design projects.</p>
+			<p class="mb-0">By using this service, you can download your raster image as an SVG file, making it easier to edit and use for various design projects.</p>
 		</div>
 		<div class="relative flex flex-col gap-4 md:gap-8 max-w-md">
 			<StepUpload />
