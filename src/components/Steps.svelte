@@ -13,7 +13,7 @@
 			class="flex flex-col lg:flex-col items-center lg:items-start md:max-w-3xl lg:max-w-lg"
 		>
 			<!-- svelte-ignore a11y-media-has-caption -->
-			<video class="object-cover w-full aspect-video mb-5" src="./process.mp4" poster="./poster.png" autoplay loop muted></video>
+			<video class="object-cover w-full aspect-[16:10] mb-5" src="./process.mp4" poster="./poster.jpg" autoplay loop muted></video>
 			<h1
 				class="font-bold tracking-tight mb-3 text-4xl md:text-5xl lg:text-6xl text-center lg:!text-left"
 			>
