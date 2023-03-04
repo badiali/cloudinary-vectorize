@@ -23,6 +23,8 @@
 			uploadMultiple: false,
 			acceptedFiles: ".jpg,.jpeg,.png,.webp",
 			maxFiles: 1,
+			thumbnailWidth: 200,
+			thumbnailHeight: 120,
 		});
 		const apiKey = process.env.CLOUDINARY_API_KEY;
 
