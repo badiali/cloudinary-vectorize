@@ -26,7 +26,7 @@
 			thumbnailWidth: 200,
 			thumbnailHeight: 120,
 		});
-		const apiKey = process.env.CLOUDINARY_API_KEY;
+		const apiKey = import.meta.env.CLOUDINARY_API_KEY;
 
 		dropzone.on("sending", (file, xhr, formData) => {
 			imageStatus.set(ImageStatus.UPLOADING);
