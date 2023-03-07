@@ -38,6 +38,7 @@
 			<!-- svelte-ignore a11y-img-redundant-alt -->
 			<img
 				src={$modifiedImage}
+				class="w-full"
 				alt="Vectorized image uploaded by user"
 			/>
 		{/if}
