@@ -45,7 +45,8 @@
 	</two-up>
 	<a
 		href={$modifiedImage}
-		download="vectorized-image.svg"
+		download
+		rel="noreferrer"
 		class="block btn font-bold bg-blue-600 rounded-full text-bold text-white text-xl text-center px-6 py-4 mt-10 mx-5 md:mx-auto max-w-md"
 	>
 		Download vectorized image
