@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { Cloudinary } from "@cloudinary/url-gen";
 	import { vectorize } from "@cloudinary/url-gen/actions/effect";
-
-	import { ImageStatus } from "../types.d";
-	import { imageStatus, modifiedImage, originalImage } from "../store";
+	import { Flag } from "@cloudinary/url-gen/qualifiers/flag";
+	import { onMount } from "svelte";
 	import Dropzone from "dropzone";
 	import "dropzone/dist/dropzone.css";
 
-	import { onMount } from "svelte";
+	import { ImageStatus } from "../types.d";
+	import { imageStatus, modifiedImage, originalImage } from "../store";
 
 	const cloudinary = new Cloudinary({
 		cloud: {
@@ -37,29 +37,28 @@
 
 		dropzone.on("success", (file, response) => {
 			const { public_id: publicId, secure_url: url } = response;
-
 			const vectorizedImage = cloudinary
 				.image(publicId)
 				.effect(
 					vectorize()
 						/*	The number of colors.
 							Range: 2 to 30. Default: 10. */
-						.numOfColors(10)
+						.numOfColors()
 						/* The level of detail, either as a percentage of the original image, or an absolute number of pixels.
 							Range: 0.0 to 1.0, or 0 to 1000. Default: 300. */
-						.detailsLevel(500)
+						.detailsLevel()
 						/*	The size up to which to suppress speckles, either as a percentage of the original image, or an absolute number of pixels.
 							Range: 0.0 to 1.0, or 0 to 100. Default: 2. */
-						.despeckleLevel(200)
+						.despeckleLevel()
 						/*	The Bezier curve optimization value up to 100 for least optimization and the largest file.
 							Range: 0 to 100. Default: 100. */
-						.paths(50)
+						.paths()
 						/* The corner threshold parameter. The lower the value, the smoother the corners.
 							Range: 0 to 100. Default: 25. */
-						.cornersLevel(50)
+						.cornersLevel()
 				)
-				.format("svg");
-
+				.format("svg")
+				.addFlag(Flag.attachment("vectorized-image"));
 			imageStatus.set(ImageStatus.DONE);
 			originalImage.set(url);
 			modifiedImage.set(vectorizedImage.toURL());
@@ -74,9 +73,10 @@
 
 <form
 	id="dropzone"
-	class="dropzone-form w-full flex flex-col sm:justify-center sm:items-center sm:gap-8 sm:pt-36 sm:pb-16 sm:px-16 rounded-[2rem]"
+	class="dropzone-form relative w-full flex flex-col sm:justify-center sm:items-center sm:gap-8 sm:pt-36 sm:pb-16 sm:px-16 rounded-[2rem]"
 	action="https://api.cloudinary.com/v1_1/badiali/image/upload"
 >
+	<input type="hidden" id="num_colors" name="num_colors" value="2" />
 	{#if $imageStatus === ImageStatus.READY}
 		<button
 			class="btn font-bold pointer-events-none bg-blue-600 rounded-full text-bold text-white text-xl px-6 py-4"
@@ -94,7 +94,6 @@
 
 <style>
 	.dropzone-form * {
-		position: relative;
 		z-index: 2;
 	}
 	.dropzone-form::before {
